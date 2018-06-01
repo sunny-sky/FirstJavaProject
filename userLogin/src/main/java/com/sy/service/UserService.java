@@ -3,11 +3,11 @@ package com.sy.service;
 
 import com.sy.entity.User;
 
-//Service灞傛帴鍙�
+//Service鐏炲倹甯撮崣锟�
 public interface UserService {
 	
-	//妫�楠岀敤鎴风櫥褰�
+	//濡拷妤犲瞼鏁ら幋椋庢瑜帮拷
 	User checkLogin(String username,String password);
-	void Regist(User user);
+	boolean Regist(User user);
 
 }

@@ -65,9 +65,16 @@ public class UserController {
 	
 	@RequestMapping("/doRegist")
     public String doRegist(User user,Model model){
+		
         System.out.println(user.getUsername());
-        userServivce.Regist(user);
-        return "success";
+        boolean rgst= userServivce.Regist(user);
+        if(rgst){
+        	return "success";
+        }
+        else{
+        	return "fail";
+        }
+        
     }
 	
 	

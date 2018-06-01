@@ -14,7 +14,7 @@ public class UserServiceImpl implements UserService{
 	private UserDao userDao;
 	
 	/* 
-	 * 妫�楠岀敤鎴风櫥褰曚笟鍔�
+	 * 濡拷妤犲瞼鏁ら幋椋庢瑜版洑绗熼崝锟�
 	 * 
 	 */
 	public User checkLogin(String username, String password) {
@@ -28,7 +28,30 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	@Override
-	public void Regist(User user){
-		 userDao.registerByUsernameAndPassword(user.getUsername(),user.getPassword());
+	public boolean Regist(User user){
+//		try {
+//			userDao.registerByUsernameAndPassword(user.getUsername(),user.getPassword());
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
+////		User user1 = userDao.findByUsername(user.getUsername());
+////		if(user1==null){
+////			userDao.registerByUsernameAndPassword(user.getUsername(),user.getPassword());
+////		}
+////		else{
+////			return null;
+////		}
+//}
+
+		User user1 = userDao.findByUsername(user.getUsername());
+		if(user1==null){
+			userDao.registerByUsernameAndPassword(user.getUsername(),user.getPassword());
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 }
